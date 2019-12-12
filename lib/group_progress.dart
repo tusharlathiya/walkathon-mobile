@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class GroupProgressWidget extends StatelessWidget {
   final int progress;
+  final String message;
 
-  GroupProgressWidget(this.progress);
+  GroupProgressWidget(this.progress, this.message);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class GroupProgressWidget extends StatelessWidget {
           Row(
             children: <Widget>[
               Text(
-                'Your steps: ',
+                '$message: ',
               ),
               Text(
                 '$progress',
