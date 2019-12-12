@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fit_kit/fit_kit.dart';
+import 'package:walkathon/entry.dart';
+import 'package:walkathon/group_progress.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -17,37 +20,34 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void read() async {
+//    final result = await FitKit.read(
+//      DataType.STEP_COUNT,
+//      dateFrom: DateTime.now().subtract(Duration(days: 5)),
+//      dateTo: DateTime.now(),);
+//    var result2 = result[0];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    read();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var children = <Widget>[
+          GroupProgressWidget(5)
+        ];
+    for(int i=0; i<15; i++) {
+      children.add(EntryWidget(i.toString()));
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                'Your steps: ',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text(
-                'Your group\'s steps: ',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          )
-        ],
+      body: ListView(
+        children: children,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
