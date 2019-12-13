@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:walkathon/entry.dart';
-import 'package:walkathon/group_progress.dart';
+import 'package:walkathon/home/entry.dart';
+import 'package:walkathon/home/group_progress.dart';
 import 'package:walkathon/api_client.dart' as apiClient;
 import 'package:walkathon/responses/dashboard_response.dart';
 

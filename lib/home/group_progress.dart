@@ -46,16 +46,22 @@ class GroupProgressWidget extends StatelessWidget {
           Container(
             height: 100,
             width: 100,
-            child: CircularProgressIndicator(
-              strokeWidth: 10,
-              value: 0.9,
-              semanticsLabel: "steps",
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                CircularProgressIndicator(
+                  strokeWidth: 10,
+                  value: 0.9,
+                  semanticsLabel: "steps",
+                ),
+                Center(
+                  child: Text('1230/4000'),
+                )
+              ],
             ),
           ),
-
         ],
       ),
     );
   }
-
 }
