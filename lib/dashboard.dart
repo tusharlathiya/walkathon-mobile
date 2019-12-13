@@ -15,8 +15,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Dashboard dashboard;
 
-  void _refresh() {
-    apiClient.get("").then((res) {
+  Future<void> _refresh() {
+    return apiClient.get("").then((res) {
       setState(() {
         dashboard = Dashboard(res);
       });
@@ -31,6 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    if(dashboard == null) {
+      return Container();
+    }
     var children = <Widget>[
           GroupProgressWidget(5, dashboard.message)
         ];
@@ -41,13 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: children,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _refresh,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      body: RefreshIndicator(
+        child: ListView(
+          children: children,
+        ),
+        onRefresh: _refresh,
+        notificationPredicate: (n) => n.depth == 0,
       ),
     );
   }
