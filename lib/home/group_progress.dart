@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class GroupProgressWidget extends StatelessWidget {
   final int progress;
@@ -16,49 +17,29 @@ class GroupProgressWidget extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text(
-                '$message: ',
-              ),
-              Text(
-                '$progress',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          ),
-          Container(
-            height: 20,
-            child: LinearProgressIndicator(
-              value: 0.9,
-              semanticsLabel: "steps",
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              Text(
-                'Your group\'s steps: ',
-              ),
-              Text(
-                '$progress',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          ),
-          Container(
-            height: 100,
-            width: 100,
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                CircularProgressIndicator(
-                  strokeWidth: 10,
-                  value: 0.9,
-                  semanticsLabel: "steps",
+              Expanded(
+                flex: 1,
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.red,
                 ),
-                Center(
-                  child: Text('1230/4000'),
-                )
-              ],
-            ),
+              ),
+              Expanded(
+                flex: 1,
+                child: CircleAvatar(
+                  radius: 70,
+                  backgroundColor: Colors.red,
+                  child: Text('Hi'),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.red,
+                ),
+              ),
+            ],
           ),
         ],
       ),

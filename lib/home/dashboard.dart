@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return Container();
     }
     var children = <Widget>[
+          GroupProgressWidget(5, dashboard.message),
           GroupProgressWidget(5, dashboard.message)
         ];
     for(int i=0; i<15; i++) {
