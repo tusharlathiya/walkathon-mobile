@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           GroupProgressWidget(5, dashboard.message)
         ];
     for(int i=0; i<15; i++) {
-      children.add(EntryWidget(i.toString()));
+      children.add(GroupWidget(i.toString()));
     }
     return Scaffold(
       appBar: AppBar(
