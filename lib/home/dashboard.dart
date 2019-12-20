@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:walkathon/home/entry.dart';
-import 'package:walkathon/home/group_progress.dart';
+import 'package:walkathon/home/group_widget.dart';
+import 'package:walkathon/home/position_widget.dart';
 import 'package:walkathon/api_client.dart' as apiClient;
 import 'package:walkathon/responses/dashboard_response.dart';
 
@@ -35,8 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
       return Container();
     }
     var children = <Widget>[
-          GroupProgressWidget(5, dashboard.message),
-          GroupProgressWidget(5, dashboard.message)
+          PositionWidget(5, dashboard.message),
+          PositionWidget(5, dashboard.message)
         ];
     for(int i=0; i<15; i++) {
       children.add(GroupWidget(i.toString()));

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class GroupProgressWidget extends StatelessWidget {
+class PositionWidget extends StatelessWidget {
   final int progress;
   final String message;
 
-  GroupProgressWidget(this.progress, this.message);
+  PositionWidget(this.progress, this.message);
 
   @override
   Widget build(BuildContext context) {

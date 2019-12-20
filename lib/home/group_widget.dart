@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:walkathon/group_details/group_details.dart';
 
 class GroupWidget extends StatefulWidget {
   final String _entry;
@@ -22,25 +21,35 @@ class GroupState extends State<GroupWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      color: Colors.blue,
+    return Container(
       margin: EdgeInsets.all(5),
-      duration: Duration(seconds: 1),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           InkWell(
-            onTap: () => this.setState(() => {this._isExpanded = !this._isExpanded}),
+            onTap: () =>
+                this.setState(() => {this._isExpanded = !this._isExpanded}),
             child: Container(
               height: 50,
-              child: Center(child: Text('Entry $_entry')),
+              child: Column(
+                children: <Widget>[
+                  Text('Group $_entry'),
+                  Container(height: 20,child: LinearProgressIndicator(value: 0.4))
+                ],
+              ),
             ),
           ),
           Container(
+            color: Colors.red,
             child: Visibility(
                 visible: this._isExpanded,
                 maintainState: true,
                 maintainAnimation: false,
-                child: Text('Hidden Text')),
+                child: Column(
+                  children: ['a', 'b', 'd'].map((f) {
+                    return Text(f);
+                  }).toList(),
+                )),
           )
         ],
       ),
